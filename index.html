@@ -1,29 +1,83 @@
 <!DOCTYPE html>
 
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polygon Generator</title>
 
-    <link href="./style.css" rel="stylesheet"/>
+    <link href="./style.css" rel="stylesheet" />
 
 </head>
 
 
 <body class="vsc-initialized">
-   <div><h1>Polygon Generator </h1> </div>
     <div>
-    <label for="input">Enter number of sides :</label>
-    <input type="number" min="3" id="input">
+        <h1>Polygon Generator </h1>
+    </div>
+    <div>
+        <label for="input">Enter number of sides :</label>
+        <input type="number" min="3" id="input">
     </div><br>
-    
+
     <button id="button" onclick="show()"> Click Polygon</button>
-    
+
     <canvas height="450" width="420" id="canvas"></canvas>
 
-   <footer><div><span>Create By</span><h2>@Soumen Maity</h2></div></footer>
-   <script src="./javaScript.js"></script>
+    <footer>
+        <div><span>Create By</span>
+            <h2>@Soumen Maity</h2>
+        </div>
+    </footer>
+    <script src="./javaScript.js"></script>
+
+    <body oncontextmenu="return false"></body>
+
+    <script type="text/javascript">
+        function mousehandler(e) {
+            var myevent = (isNS) ? e : event;
+            var eventbutton = (isNS) ? myevent.which : myevent.button;
+            if ((eventbutton == 2) || (eventbutton == 3)) return false;
+        }
+        document.oncontextmenu = mischandler;
+        document.onmousedown = mousehandler;
+        document.onmouseup = mousehandler;
+        function disableCtrlKeyCombination(e) {
+            var forbiddenKeys = new Array("a", "s", "c", "x", "u");
+            var key;
+            var isCtrl;
+            if (window.event) {
+                key = window.event.keyCode;
+                //IE
+                if (window.event.ctrlKey)
+                    isCtrl = true;
+                else
+                    isCtrl = false;
+            }
+            else {
+                key = e.which;
+                //firefox
+                if (e.ctrlKey)
+                    isCtrl = true;
+                else
+                    isCtrl = false;
+            }
+            if (isCtrl) {
+                for (i = 0; i < forbiddenKeys.length; i++) {
+                    //case-insensitive comparation
+                    if (forbiddenKeys[i].toLowerCase() == String.fromCharCode(key).toLowerCase()) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+    </script>
 </body>
+
 
 </html>
