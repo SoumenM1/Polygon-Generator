@@ -12,7 +12,7 @@ const circleradius=200;
 function show(){
     const n=input.value;
     if(n>2){
-ctx.clearRect(10, 10, 100, 50)
+ctx.clearRect(0,0,450,430)
 var angle=2*Math.PI/n;
 
 ctx.beginPath()
@@ -32,4 +32,4 @@ ctx.closePath()
 
 ctx.font= '20px monospace'
 ctx.fillStyle ='cyan'
-// ctx.fillText("@SoumenM",300,445,100)
+// ctx.fillText("@SoumenM",3,445,100)
